@@ -64,7 +64,7 @@ RUN ${python_version} -m pip install --upgrade pip \
     && ${python_version} -m pip install -r /workspace/requirements.txt \
     && if [ -d /workspace/thirdparty/gym ]; then ${python_version} -m pip install -e /workspace/thirdparty/gym; fi \
     && if [ -d /workspace/thirdparty/gymnasium ]; then ${python_version} -m pip install -e /workspace/thirdparty/gymnasium; fi \
-    && if [ -d /workspace/thirdparty/stable-baselines3 ]; then ${python_version} -m pip install -e /workspace/thirdparty/stable-baselines3; fi
+    && if [ -d /workspace/thirdparty/stable_baselines3 ]; then ${python_version} -m pip install -e /workspace/thirdparty/stable_baselines3; fi
 
 RUN ${python_version} -m pip freeze
 

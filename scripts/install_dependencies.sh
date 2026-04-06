@@ -25,8 +25,8 @@ if [ -d "${ROOT_DIR}/thirdparty/gymnasium" ]; then
   "${PYTHON_BIN}" -m pip install -e "${ROOT_DIR}/thirdparty/gymnasium"
 fi
 
-if [ -d "${ROOT_DIR}/thirdparty/stable-baselines3" ]; then
-  "${PYTHON_BIN}" -m pip install -e "${ROOT_DIR}/thirdparty/stable-baselines3"
+if [ -d "${ROOT_DIR}/thirdparty/stable_baselines3" ]; then
+  "${PYTHON_BIN}" -m pip install -e "${ROOT_DIR}/thirdparty/stable_baselines3"
 fi
 
 echo "Dependencies installed successfully."
