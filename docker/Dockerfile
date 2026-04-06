@@ -53,6 +53,18 @@ RUN case "${base_image}" in \
        *) echo "Skip installing CuDNN. This is a CPU only image." ;; \
     esac
 
+# Copy the project into the image and install workspace dependencies
+WORKDIR /workspace
+COPY . /workspace
+
+# Unzip thirdparty.zip into thirdparty folder
+RUN mkdir -p thirdparty && unzip thirdparty.zip -d thirdparty
+
+RUN ${python_version} -m pip install --upgrade pip \
+    && ${python_version} -m pip install -r /workspace/requirements.txt \
+    && if [ -d /workspace/thirdparty/gym ]; then ${python_version} -m pip install -e /workspace/thirdparty/gym; fi \
+    && if [ -d /workspace/thirdparty/gymnasium ]; then ${python_version} -m pip install -e /workspace/thirdparty/gymnasium; fi
+
 RUN ${python_version} -m pip freeze
 
 CMD ["/bin/bash"]
