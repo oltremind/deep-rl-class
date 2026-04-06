@@ -13,16 +13,20 @@ fi
 ${SUDO} apt-get update
 ${SUDO} apt-get install -y swig cmake python3-opengl ffmpeg xvfb
 
-# "${PYTHON_BIN}" -m pip install --upgrade pip
-# "${PYTHON_BIN}" -m pip install -r "${ROOT_DIR}/requirements.txt"
-# "${PYTHON_BIN}" -m pip install pyvirtualdisplay
+"${PYTHON_BIN}" -m pip install --upgrade pip
+"${PYTHON_BIN}" -m pip install -r "${ROOT_DIR}/requirements.txt"
+"${PYTHON_BIN}" -m pip install pyvirtualdisplay
 
 if [ -d "${ROOT_DIR}/thirdparty/gym" ]; then
   "${PYTHON_BIN}" -m pip install -e "${ROOT_DIR}/thirdparty/gym"
 fi
 
-if [ -d "${ROOT_DIR}/thirdparty/Gymnasium" ]; then
-  "${PYTHON_BIN}" -m pip install -e "${ROOT_DIR}/thirdparty/Gymnasium"
+if [ -d "${ROOT_DIR}/thirdparty/gymnasium" ]; then
+  "${PYTHON_BIN}" -m pip install -e "${ROOT_DIR}/thirdparty/gymnasium"
+fi
+
+if [ -d "${ROOT_DIR}/thirdparty/stable-baselines3" ]; then
+  "${PYTHON_BIN}" -m pip install -e "${ROOT_DIR}/thirdparty/stable-baselines3"
 fi
 
 echo "Dependencies installed successfully."
