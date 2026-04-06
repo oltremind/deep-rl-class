@@ -1,3 +1,5 @@
+ipykernel
+jupyter
 stable-baselines3==2.0.0a5
 swig
 gymnasium[box2d]
